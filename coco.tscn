@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://c7l4aan8837hs"]
+
+[ext_resource type="Script" uid="uid://dj3qw7bu8fwt6" path="res://coco.gd" id="1_ox8pb"]
+[ext_resource type="Texture2D" uid="uid://dxbgrghngv8ba" path="res://Coco.png" id="2_0f3hv"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3a5v1"]
+radius = 20.22375
+
+[node name="coco" type="Area2D" unique_id=1234840687]
+script = ExtResource("1_ox8pb")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=91687846]
+position = Vector2(172, 95)
+scale = Vector2(0.07242065, 0.06443662)
+texture = ExtResource("2_0f3hv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=391125800]
+position = Vector2(172, 93)
+shape = SubResource("CircleShape2D_3a5v1")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://cms0yi2fiwm86"]
+
+[ext_resource type="AudioStream" uid="uid://oe204xs48hfq" path="res://Sonidos/Botones.wav" id="1_redm6"]
+
+[node name="ReproductorClick" type="AudioStreamPlayer" unique_id=1902628192]
+stream = ExtResource("1_redm6")
+volume_db = -25.0

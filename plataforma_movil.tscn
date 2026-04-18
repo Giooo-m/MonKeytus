@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://t3mrw6nqbmrb"]
+
+[ext_resource type="Script" uid="uid://c2fc878705k5s" path="res://plataforma_movil.gd" id="1_rbb1a"]
+[ext_resource type="Texture2D" uid="uid://hfpye6lkqed3" path="res://PlataformaMovil.png" id="2_rbb1a"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0lb2v"]
+size = Vector2(138.57143, 38.571426)
+
+[node name="Node2D" type="Node2D" unique_id=1658198226]
+
+[node name="PlataformaMovil" type="StaticBody2D" parent="." unique_id=1117630086]
+script = ExtResource("1_rbb1a")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlataformaMovil" unique_id=1074042669]
+position = Vector2(141.5, 79.49999)
+scale = Vector2(0.7, 0.7)
+shape = SubResource("RectangleShape2D_0lb2v")
+one_way_collision = true
+one_way_collision_margin = 2.0
+
+[node name="Sprite2D" type="Sprite2D" parent="PlataformaMovil" unique_id=1951442337]
+position = Vector2(141.5, 81.5)
+scale = Vector2(0.07096353, 0.098632805)
+texture = ExtResource("2_rbb1a")
