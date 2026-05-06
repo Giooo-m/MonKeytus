@@ -12,7 +12,6 @@ var ancho_pantalla = 1152.0
 var distancia_fija = 90.0 
 
 @onready var jugador = get_parent().get_node_or_null("Jugador")
-
 func _ready():
 	var timer_cocos = get_node_or_null("TimerCocos")
 	if timer_cocos:

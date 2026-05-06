@@ -22,7 +22,8 @@ func _ready():
 	if sprite:
 		sprite.frame = 7 
 func _physics_process(delta):
-	if not vivo: return 
+	if not vivo:
+		return
 
 	# 1. Gravedad y Movimiento
 	velocity.y += gravedad * delta
@@ -54,7 +55,7 @@ func _physics_process(delta):
 	elif velocity.x < 0: sprite.flip_h = true
 
 	# 3. LÓGICA DE SALTO Y RECOLECCIÓN (Tu lógica original intacta)
-	if velocity.y > 0: 
+	if velocity.y > 0 : 
 		var colision = move_and_collide(Vector2(0, 18), true)
 		if colision:
 			var objeto = colision.get_collider()

@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://dbgcptg8kubgx"]
 
+[ext_resource type="Script" uid="uid://dvlweokdkjh0p" path="res://mundo.gd" id="1_0oi55"]
 [ext_resource type="PackedScene" uid="uid://cyas3hobplj23" path="res://jugador.tscn" id="1_lgngo"]
 [ext_resource type="Script" uid="uid://by2r321ocp3up" path="res://generador.gd" id="2_fw4w5"]
 [ext_resource type="Texture2D" uid="uid://cp56t7yvwy440" path="res://Fondo.png" id="3_fw4w5"]
@@ -9,24 +10,26 @@
 [ext_resource type="PackedScene" uid="uid://h8hig0cpugfv" path="res://menu_pausa.tscn" id="6_5ckkb"]
 [ext_resource type="Texture2D" uid="uid://5ldj62fetpvd" path="res://Escudo.png" id="6_pfhxm"]
 [ext_resource type="AudioStream" uid="uid://hqdxcr2by0r6" path="res://Sonidos/Musica Fondo.ogg" id="8_t8jxu"]
+[ext_resource type="VideoStream" uid="uid://xbe8qxndwvvm" path="res://selva.ogv" id="11_0oi55"]
 
 [node name="Node2D" type="Node2D" unique_id=1966020425]
+script = ExtResource("1_0oi55")
 
 [node name="Jugador" parent="." unique_id=1270469458 instance=ExtResource("1_lgngo")]
-position = Vector2(458, 328)
+position = Vector2(470.00003, 360)
+scale = Vector2(0.9, 0.9)
+up_direction = Vector2(0.7071068, -0.7071068)
 
 [node name="Generador" type="Node2D" parent="." unique_id=517749680]
 script = ExtResource("2_fw4w5")
 
 [node name="Timer" type="Timer" parent="Generador" unique_id=819285025]
-wait_time = 3.0
-autostart = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1466903983]
 layer = -1
 
 [node name="Fondo" type="Sprite2D" parent="CanvasLayer" unique_id=19660808]
-position = Vector2(583, 328.49997)
+position = Vector2(590, 340)
 scale = Vector2(1.0334189, 0.82812494)
 texture = ExtResource("3_fw4w5")
 
@@ -78,4 +81,15 @@ stream = ExtResource("8_t8jxu")
 autoplay = true
 max_distance = 99999.0
 
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="." unique_id=1239487169]
+process_mode = 2
+z_index = 100
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stream = ExtResource("11_0oi55")
+
 [connection signal="timeout" from="Generador/Timer" to="Generador" method="_on_timer_timeout"]
+[connection signal="finished" from="VideoStreamPlayer" to="." method="_on_video_stream_player_finished"]
