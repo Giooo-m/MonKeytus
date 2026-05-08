@@ -1,0 +1,54 @@
+[gd_scene format=3 uid="uid://f6hshc7852p7"]
+
+[ext_resource type="Script" uid="uid://u5hic2ndp68a" path="res://Level1/Script/cinematica.gd" id="1_frv7s"]
+[ext_resource type="Texture2D" uid="uid://cp56t7yvwy440" path="res://Level1/Texturas/Fondo.png" id="2_42b1e"]
+[ext_resource type="VideoStream" uid="uid://cdehx6qsqktw8" path="res://Cinematica.ogv" id="2_68lio"]
+[ext_resource type="FontFile" uid="uid://choesj0tnpjvb" path="res://Fuentes/Fighting Spirit 2 ital.otf" id="2_y27lj"]
+
+[node name="historia" type="Control" unique_id=2145733752]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_frv7s")
+
+[node name="CapaFondo" type="ColorRect" parent="." unique_id=1827970446]
+layout_mode = 0
+offset_left = -4.0
+offset_right = 1168.0
+offset_bottom = 667.0
+color = Color(0, 0, 0, 0.4509804)
+
+[node name="Fondo" type="TextureRect" parent="CapaFondo" unique_id=1273560314]
+layout_mode = 0
+offset_right = 1171.0
+offset_bottom = 665.0
+texture = ExtResource("2_42b1e")
+expand_mode = 1
+flip_h = true
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="." unique_id=2043803732]
+layout_mode = 0
+offset_left = 21.0
+offset_top = 28.0
+offset_right = 1134.0
+offset_bottom = 624.0
+stream = ExtResource("2_68lio")
+autoplay = true
+expand = true
+
+[node name="BtnOmitir" type="Button" parent="." unique_id=1552505605]
+layout_mode = 0
+offset_left = 986.0
+offset_top = 551.0
+offset_right = 1096.0
+offset_bottom = 600.0
+theme_override_colors/font_outline_color = Color(0, 0.42745098, 0, 1)
+theme_override_constants/outline_size = 6
+theme_override_fonts/font = ExtResource("2_y27lj")
+theme_override_font_sizes/font_size = 28
+text = "omitir
+"
+
+[connection signal="finished" from="VideoStreamPlayer" to="." method="_on_video_stream_player_finished"]
+[connection signal="pressed" from="BtnOmitir" to="." method="_on_btn_omitir_pressed"]

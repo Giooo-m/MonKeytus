@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://cwqaoxbnsmkp"]
+
+[ext_resource type="PackedScene" uid="uid://dbgcptg8kubgx" path="res://UI/mundo.tscn" id="1_udc6a"]
+[ext_resource type="Texture2D" uid="uid://cr7a86linn7ou" path="res://Level2/Texturas/Fondo2.png" id="2_ixxmk"]
+[ext_resource type="Script" uid="uid://dqlofemeu02gu" path="res://Level2/Escenas/mundo_2.gd" id="2_xet18"]
+[ext_resource type="PackedScene" uid="uid://bj6ktx3022btp" path="res://Level2/Escenas/ShadowMK.tscn" id="3_xet18"]
+
+[node name="Node2D" unique_id=1966020425 instance=ExtResource("1_udc6a")]
+script = ExtResource("2_xet18")
+
+[node name="ShadowMK" parent="." index="1" unique_id=1871170205 instance=ExtResource("3_xet18")]
+z_index = 0
+position = Vector2(414, 340)
+
+[node name="Generador" parent="." index="2" unique_id=517749680]
+nivel_dos = true
+
+[node name="Fondo" parent="CanvasLayer" parent_id_path=PackedInt32Array(1466903983) index="0" unique_id=19660808]
+position = Vector2(600, 377)
+scale = Vector2(1.0332111, 0.9668367)
+texture = ExtResource("2_ixxmk")
+
+[node name="ContenedorBananas" parent="CanvasLayer" parent_id_path=PackedInt32Array(1466903983) index="1" unique_id=950443940]
+offset_left = 20.0
+offset_top = 35.0
+offset_right = 145.0
+offset_bottom = 125.0
+
+[node name="MusicaFondo" parent="." index="6" unique_id=117528768]
+position = Vector2(3, 2)
+
+[node name="TimerFireball" type="Timer" parent="." index="7" unique_id=1861956062]
+
+[connection signal="timeout" from="Generador/Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="TimerFireball" to="." method="_on_timer_fireball_timeout"]

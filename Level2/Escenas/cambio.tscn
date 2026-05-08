@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://uwa280sn7k"]
+
+[ext_resource type="Script" uid="uid://dps6fle8ojscc" path="res://Level2/Escenas/cambio.gd" id="1_o85le"]
+[ext_resource type="VideoStream" uid="uid://b35sxqw04by1l" path="res://Level2/Cinematicas/cambioSelva.ogv" id="2_o85le"]
+
+[node name="Cambio" type="Control" unique_id=968525862]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_o85le")
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="." unique_id=86735762]
+layout_mode = 0
+offset_left = -81.0
+offset_top = -70.0
+offset_right = 1244.0
+offset_bottom = 724.0
+stream = ExtResource("2_o85le")
+autoplay = true
+expand = true

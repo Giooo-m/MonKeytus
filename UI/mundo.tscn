@@ -1,0 +1,81 @@
+[gd_scene format=3 uid="uid://dbgcptg8kubgx"]
+
+[ext_resource type="PackedScene" uid="uid://cyas3hobplj23" path="res://Jugador/jugador.tscn" id="1_3t28s"]
+[ext_resource type="Script" uid="uid://by2r321ocp3up" path="res://Level1/Script/generador.gd" id="2_02287"]
+[ext_resource type="Texture2D" uid="uid://cp56t7yvwy440" path="res://Level1/Texturas/Fondo.png" id="3_44cd4"]
+[ext_resource type="Texture2D" uid="uid://qnhkmrbsdkcu" path="res://Level1/Texturas/Banana.png" id="4_mkxx5"]
+[ext_resource type="FontFile" uid="uid://choesj0tnpjvb" path="res://Fuentes/Fighting Spirit 2 ital.otf" id="5_f32hb"]
+[ext_resource type="Texture2D" uid="uid://5ldj62fetpvd" path="res://Level1/Texturas/Escudo.png" id="6_gqhws"]
+[ext_resource type="PackedScene" uid="uid://do3oturk5y8fd" path="res://Level1/Escenas/plataforma.tscn" id="7_hfneu"]
+[ext_resource type="PackedScene" uid="uid://h8hig0cpugfv" path="res://UI/menu_pausa.tscn" id="8_61jsp"]
+[ext_resource type="AudioStream" uid="uid://hqdxcr2by0r6" path="res://Sonidos/Musica Fondo.ogg" id="9_vtr11"]
+
+[node name="Node2D" type="Node2D" unique_id=1966020425]
+
+[node name="Jugador" parent="." unique_id=1270469458 instance=ExtResource("1_3t28s")]
+position = Vector2(458, 328)
+
+[node name="Generador" type="Node2D" parent="." unique_id=517749680]
+script = ExtResource("2_02287")
+
+[node name="Timer" type="Timer" parent="Generador" unique_id=819285025]
+wait_time = 3.0
+autostart = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1466903983]
+layer = -1
+
+[node name="Fondo" type="Sprite2D" parent="CanvasLayer" unique_id=19660808]
+position = Vector2(583, 328.49997)
+scale = Vector2(1.0334189, 0.82812494)
+texture = ExtResource("3_44cd4")
+
+[node name="ContenedorBananas" type="HBoxContainer" parent="CanvasLayer" unique_id=950443940]
+offset_left = 23.0
+offset_top = 28.0
+offset_right = 148.0
+offset_bottom = 118.0
+
+[node name="IconoBanana" type="TextureRect" parent="CanvasLayer/ContenedorBananas" unique_id=742076879]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture = ExtResource("4_mkxx5")
+
+[node name="ContadorTexto" type="Label" parent="CanvasLayer/ContenedorBananas" unique_id=618859682 groups=["grupo_label_puntos"]]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_f32hb")
+theme_override_font_sizes/font_size = 35
+text = "0"
+
+[node name="ContenedorEscudo" type="HBoxContainer" parent="CanvasLayer" unique_id=1437451450 groups=["grupo_contenedor_escudo"]]
+visible = false
+offset_left = 32.0
+offset_top = 113.0
+offset_right = 128.0
+offset_bottom = 185.0
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/ContenedorEscudo" unique_id=110816538]
+layout_mode = 2
+texture = ExtResource("6_gqhws")
+expand_mode = 2
+
+[node name="ContadorEscudo" type="Label" parent="CanvasLayer/ContenedorEscudo" unique_id=743954115 groups=["grupo_label_escudo"]]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_f32hb")
+theme_override_font_sizes/font_size = 35
+text = "0"
+
+[node name="PlataformaFija" parent="." unique_id=72594811 instance=ExtResource("7_hfneu")]
+position = Vector2(402, 405)
+
+[node name="MenuPausa" parent="." unique_id=1385279392 instance=ExtResource("8_61jsp")]
+visible = false
+
+[node name="MusicaFondo" type="AudioStreamPlayer2D" parent="." unique_id=117528768]
+process_mode = 1
+stream = ExtResource("9_vtr11")
+autoplay = true
+max_distance = 99999.0
+
+[connection signal="timeout" from="Generador/Timer" to="Generador" method="_on_timer_timeout"]

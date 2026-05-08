@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://bj6ktx3022btp"]
+
+[ext_resource type="Texture2D" uid="uid://ty08xg74tkir" path="res://Level2/Texturas/ShadowMK.png" id="1_ncdjr"]
+[ext_resource type="Script" uid="uid://vq4w7o8x20nd" path="res://Level2/Escenas/shadow_mk.gd" id="1_q2xjp"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_q2xjp"]
+radius = 16.0
+height = 54.0
+
+[node name="Area2D" type="Area2D" unique_id=1871170205]
+z_index = 10
+script = ExtResource("1_q2xjp")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=358516376]
+position = Vector2(123.330605, 72.99359)
+scale = Vector2(0.25522974, 0.18356869)
+texture = ExtResource("1_ncdjr")
+hframes = 4
+vframes = 2
+frame = 7
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=29037540]
+position = Vector2(121, 75)
+shape = SubResource("CapsuleShape2D_q2xjp")

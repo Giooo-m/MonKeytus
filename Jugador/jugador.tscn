@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://cyas3hobplj23"]
+
+[ext_resource type="Script" uid="uid://byovynu4nlkdl" path="res://Jugador/jugador.gd" id="1_omvyu"]
+[ext_resource type="Texture2D" uid="uid://b0a44hrt756y7" path="res://Jugador/Sprite Animaciones.png" id="2_omvyu"]
+[ext_resource type="AudioStream" uid="uid://4f0le8qddfok" path="res://Sonidos/Comer Banana.wav" id="3_8o684"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ukil5"]
+radius = 19.0
+height = 60.0
+
+[node name="Jugador" type="CharacterBody2D" unique_id=1270469458]
+position = Vector2(473, 285)
+safe_margin = 0.1
+script = ExtResource("1_omvyu")
+
+[node name="SonidoBanana" type="AudioStreamPlayer2D" parent="." unique_id=552572577]
+unique_name_in_owner = true
+stream = ExtResource("3_8o684")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1338950110]
+position = Vector2(123.330605, 72.99359)
+scale = Vector2(0.25522974, 0.18356869)
+texture = ExtResource("2_omvyu")
+hframes = 4
+vframes = 2
+frame = 7
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1079314743]
+position = Vector2(121, 83)
+shape = SubResource("CapsuleShape2D_ukil5")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=273732267]
+position = Vector2(152, 97)

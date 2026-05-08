@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://ckdjrt287ll51"]
+
+[ext_resource type="Script" uid="uid://d0cvh0caiqitr" path="res://Level2/Escenas/fireball.gd" id="1_4eqkh"]
+[ext_resource type="Texture2D" uid="uid://dtnglpueqshtm" path="res://Level2/Texturas/Fireball.png" id="1_s8q85"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4eqkh"]
+radius = 20.22375
+
+[node name="fireball" type="Area2D" unique_id=1109455889]
+script = ExtResource("1_4eqkh")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=210904029]
+position = Vector2(177.00002, 89)
+rotation = 2.5541644
+scale = Vector2(0.14884512, 0.17637073)
+texture = ExtResource("1_s8q85")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="." unique_id=1638147544]
+position = Vector2(172, 93)
+shape = SubResource("CircleShape2D_4eqkh")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=1047783543]
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
